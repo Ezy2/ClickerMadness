@@ -1,0 +1,169 @@
+--Made By Ezy 3.0 alters#1300
+
+local ScreenGui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Close = Instance.new("TextButton")
+local AutoTapon = Instance.new("TextButton")
+local AutoTapoff = Instance.new("TextButton")
+local AutoRebirthoff = Instance.new("TextButton")
+local AutoRebirthon = Instance.new("TextButton")
+local OpenMain = Instance.new("Frame")
+local Open = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+Main.Name = "Main"
+Main.Parent = ScreenGui
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BorderSizePixel = 7
+Main.Position = UDim2.new(0.328712851, 0, 0.301013023, 0)
+Main.Size = UDim2.new(0, 155, 0, 119)
+Main.Visible = false
+
+Title.Name = "Title"
+Title.Parent = Main
+Title.BackgroundColor3 = Color3.fromRGB(132, 132, 132)
+Title.BorderSizePixel = 2
+Title.Size = UDim2.new(0, 155, 0, 35)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Clicker Madness"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextSize = 18.000
+
+Close.Name = "Close"
+Close.Parent = Main
+Close.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Close.BorderSizePixel = 2
+Close.Position = UDim2.new(0.893617034, 0, 0, 0)
+Close.Size = UDim2.new(0, 15, 0, 17)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "X"
+Close.TextColor3 = Color3.fromRGB(0, 0, 0)
+Close.TextSize = 14.000
+Close.MouseButton1Down:connect(function()
+Main.Visible = false
+OpenMain.Visible = true
+end)
+
+AutoTapon.Name = "AutoTap on"
+AutoTapon.Parent = Main
+AutoTapon.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
+AutoTapon.BorderSizePixel = 2
+AutoTapon.Position = UDim2.new(0.0502859727, 0, 0.389355749, 0)
+AutoTapon.Size = UDim2.new(0, 65, 0, 23)
+AutoTapon.Font = Enum.Font.SourceSans
+AutoTapon.Text = "AutoTap on"
+AutoTapon.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoTapon.TextSize = 14.000
+AutoTapon.MouseButton1Down:connect(function()
+_G.autoTap = true	
+	spawn(function()
+		while _G.autoTap == true do
+			local args = {
+				[1] = 100.9
+			}
+
+			game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.ClickService.Click:FireServer(unpack(args))
+			wait()
+		end
+	end)
+end)
+
+AutoTapoff.Name = "AutoTap off"
+AutoTapoff.Parent = Main
+AutoTapoff.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
+AutoTapoff.BorderSizePixel = 2
+AutoTapoff.Position = UDim2.new(0.541935503, 0, 0.394957989, 0)
+AutoTapoff.Size = UDim2.new(0, 60, 0, 22)
+AutoTapoff.Font = Enum.Font.SourceSans
+AutoTapoff.Text = "AutoTap off"
+AutoTapoff.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoTapoff.TextSize = 14.000
+AutoTapoff.MouseButton1Down:connect(function()
+	_G.autoTap = false	
+	spawn(function()
+		while _G.autoTap == true do
+			local args = {
+				[1] = 100.9
+			}
+
+			game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.ClickService.Click:FireServer(unpack(args))
+			wait()
+		end
+	end)
+end)
+
+
+
+
+AutoRebirthoff.Name = "AutoRebirth off"
+AutoRebirthoff.Parent = Main
+AutoRebirthoff.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
+AutoRebirthoff.BorderSizePixel = 2
+AutoRebirthoff.Position = UDim2.new(0.541935503, 0, 0.689075649, 0)
+AutoRebirthoff.Size = UDim2.new(0, 60, 0, 26)
+AutoRebirthoff.Font = Enum.Font.SourceSans
+AutoRebirthoff.Text = "AutoRebirth off"
+AutoRebirthoff.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoRebirthoff.TextSize = 10.000
+AutoRebirthoff.MouseButton1Down:connect(function()
+_G.autoRebirth = false	
+	spawn(function()
+		while _G.autoRebirth == true do
+			local args = {
+				[1] = 1000000000
+			}
+
+			game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.RebirthService.BuyRebirths:FireServer(unpack(args))
+			wait()
+		end
+	end)
+end)
+
+AutoRebirthon.Name = "AutoRebirth on"
+AutoRebirthon.Parent = Main
+AutoRebirthon.BackgroundColor3 = Color3.fromRGB(88, 88, 88)
+AutoRebirthon.BorderSizePixel = 2
+AutoRebirthon.Position = UDim2.new(0.0567374937, 0, 0.689075649, 0)
+AutoRebirthon.Size = UDim2.new(0, 64, 0, 26)
+AutoRebirthon.Font = Enum.Font.SourceSans
+AutoRebirthon.Text = "AutoRebirth on"
+AutoRebirthon.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoRebirthon.TextSize = 10.000
+AutoRebirthon.MouseButton1Down:connect(function()
+	_G.autoRebirth = true	
+	spawn(function()
+		while _G.autoRebirth == true do
+			local args = {
+				[1] = 1000000000
+			}
+
+			game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.RebirthService.BuyRebirths:FireServer(unpack(args))
+			wait()
+		end
+	end)
+end)
+
+OpenMain.Name = "OpenMain"
+OpenMain.Parent = ScreenGui
+OpenMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+OpenMain.Position = UDim2.new(0.0217821784, 0, 0.454413891, 0)
+OpenMain.Size = UDim2.new(0, 100, 0, 35)
+
+Open.Name = "Open"
+Open.Parent = OpenMain
+Open.BackgroundColor3 = Color3.fromRGB(129, 129, 129)
+Open.BorderSizePixel = 4
+Open.Size = UDim2.new(0, 100, 0, 35)
+Open.Font = Enum.Font.SourceSans
+Open.Text = "Open Gui"
+Open.TextColor3 = Color3.fromRGB(0, 0, 0)
+Open.TextSize = 14.000
+Open.MouseButton1Down:connect(function()
+OpenMain.Visible = false
+Main.Visible = true
+end)
